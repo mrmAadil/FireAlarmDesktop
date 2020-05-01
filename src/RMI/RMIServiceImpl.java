@@ -90,9 +90,7 @@ public class RMIServiceImpl extends UnicastRemoteObject implements RMIService {
 	                    response.append(line);
 	                }
 	                reader.close();
-	            }
-                    
-                   
+	            }                   
       }catch(Exception ex){
           ex.printStackTrace();
       }finally{

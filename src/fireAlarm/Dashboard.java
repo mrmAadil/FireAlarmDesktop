@@ -295,14 +295,21 @@ public class Dashboard extends javax.swing.JFrame {
     
     public static void bindSensorReading(String responseBody) {
 
-		
-
-		JSONObject res = new JSONObject(responseBody);
-		JSONObject data = res.getJSONObject("data");
-		JSONArray sensors = data.getJSONArray("sensors");
-
-		
+		JSONArray sensors = new JSONArray(responseBody);
+		//JSONObject data = res.getJSONObject("data");
+		//JSONArray sensors = data.getJSONArray("sensors");
+                for(int i=0; i < sensors.length(); i++) {
+			 JSONObject sensor = sensors.getJSONObject(i);
+			 int id = sensor.getInt("id");
+			 String sensorname = sensor.getString("sensorname");
+			 String floor = sensor.getString("floor");
+			 String room = sensor.getString("room");
+			 String co2 = sensor.getString("co2");
+			 String smoke = sensor.getString("smoke");
+			 String status = sensor.getString("status");
+			 System.out.println(id + " " + sensorname + " " + floor + " " + co2 + " " + smoke + " " + status);		
 	}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
